@@ -12,9 +12,9 @@ Request:
 --------
 Method: GET 
 {
- chromosome: <str>,
- start: <integer>,
- stop: <integer>
+ chromosome: (String),
+ start: (Integer),
+ stop: (Integer)
 }
 
 Response: 
@@ -29,14 +29,14 @@ Request:
 Method: POST 
 [
     {
-     chromosome: <str>,
-     start: <integer>,
-     stop: <integer>
+     chromosome: (String),
+     start: (Integer),
+     stop: (Integer)
     },
     {
-     chromosome: <str>,
-     start: <integer>,
-     stop: <integer>
+     chromosome: (String),
+     start: (Integer),
+     stop: (Integer)
     }
 ]
 
@@ -50,6 +50,22 @@ Response:
         "genetic_sequence": "AABABA"
     }
 ]
+
+Sample Request:
+------------ 
+```shell
+curl -H 'Accept: application/json; indent=4' -X POST -d '[{"chromosome":"3","start":"1", "stop":"1"}, {"chromosome":"22","start":"38000900", "stop":"38000910"}]' http://127.0.0.1:8000/geneticapi/get_genetic_info
+```
+
+Sample Response:
+-------------
+```javascript
+[{"genetic_sequence": "N"}, {"genetic_sequence": "GAGATGGGGTT"}]
+```
+
+
+
+
 
 Input Parameters: 
 chromosome: can take on values (1-22, X, Y)
