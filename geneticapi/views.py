@@ -104,11 +104,13 @@ def genetic_code(query_dict):
 
 	chromosome_range = len(f[FASTA_INDEX[chromosome]])
 
-	if stop < chromosome_range and stop >= start and abs(stop-start) <= 500:
+	if start > 0 and stop > 0 and stop < chromosome_range and stop >= start and abs(stop-start) <= 500:
 		# Subtract 1 from the start: FastA is 0 indexed
 		# stop + 1 - 1 (add one to be inclusive, subtract one to be zero indexed) 
 		return f[FASTA_INDEX[chromosome]][int(start)-1:int(stop)]
 	else:
+		if start <= 0 or stop <= 0:
+			message = "Start and stop must be greater than 0. This API is 1 based."
 		if stop > chromosome_range:
 			message = "Stop index was greater than the number of base pairs in chromosome " + str(chromosome)
 		if stop - start > 500:
