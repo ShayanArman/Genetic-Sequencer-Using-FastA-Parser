@@ -63,6 +63,8 @@ Sample Response:
 [{"genetic_sequence": "N"}, {"genetic_sequence": "GAGATGGGGTT"}]
 ```
 
+[Test Cases](https://github.com/ShayanArman/Genetic-Sequencer-Using-FastA-Parser/blob/master/tests.md)
+
 Input Parameters: 
 chromosome: can take on values (1-22, X, Y)
 start: [1,..]
