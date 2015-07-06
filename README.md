@@ -63,10 +63,6 @@ Sample Response:
 [{"genetic_sequence": "N"}, {"genetic_sequence": "GAGATGGGGTT"}]
 ```
 
-
-
-
-
 Input Parameters: 
 chromosome: can take on values (1-22, X, Y)
 start: [1,..]

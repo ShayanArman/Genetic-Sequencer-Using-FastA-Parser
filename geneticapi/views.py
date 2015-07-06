@@ -109,12 +109,13 @@ def genetic_code(query_dict):
 		# stop + 1 - 1 (add one to be inclusive, subtract one to be zero indexed) 
 		return f[FASTA_INDEX[chromosome]][int(start)-1:int(stop)]
 	else:
+		message = ""
 		if start <= 0 or stop <= 0:
-			message = "Start and stop must be greater than 0. This API is 1 based."
+			message += "Start and stop must be greater than 0. "
 		if stop > chromosome_range:
-			message = "Stop index was greater than the number of base pairs in chromosome " + str(chromosome)
+			message += "Stop index was greater than the number of base pairs in chromosome " + query_dict['chromosome'] + " "
 		if stop - start > 500:
-			message = "Max range length is 500 base pairs."
+			message += "Max range length is 500 base pairs. "
 		if stop < start:
-			message = "Only positive ranges accepted. Stop must be greater than or equal start."
-		raise ChromeParseException(message, status.HTTP_400_BAD_REQUEST)
+			message += "Stop must be greater than or equal start."
+		raise ChromeParseException(message.strip(), status.HTTP_400_BAD_REQUEST)
